@@ -45,7 +45,7 @@ namespace ClearSpendingSDK.Models
         /// <summary>
         /// Количество элементов на странице
         /// </summary>
-        private int _perpage = 20;
+        private int _perpage = 10;
         public int Perpage
         {
             get { return _perpage; }
@@ -79,10 +79,11 @@ namespace ClearSpendingSDK.Models
             string outString = "?";
             if (Productsearch != null)
             {
-                outString = outString + Productsearch + "&";
-            }
-            outString = outString + Page + "&";
-            outString = outString + Perpage + "&";
+                outString = outString + "productsearch=" + Productsearch + "&";
+            };
+            outString = outString + "page=" + Page + "&";
+            outString = outString + "perpage=" + Perpage + "&";
+            outString = outString.Trim('&');
             return outString;
         }
     }
