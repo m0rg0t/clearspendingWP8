@@ -8,7 +8,52 @@ using System.Reflection;
 
 namespace ClearSpendingSDK.Models
 {
-    public class SearchParamItem: ViewModelBase
+    public class SearchParamItem
+    {
+        public enum SearchType
+        {
+            Contracts,
+            Suppliers,
+            Customers
+        }
+
+        public SearchType CurrentType = SearchType.Contracts;
+
+        public SearchParamContractItem Contract { get; set; }
+        public SearchParamSupplierItem Supplier { get; set; }
+        public SearchParamCustomerItem Customer { get; set; }
+
+        public override string ToString()
+        {
+            switch (CurrentType) {
+                case SearchType.Contracts:
+                    return Contract.ToString();
+                    break;
+                case SearchType.Suppliers:
+                    return Supplier.ToString();
+                    break;
+                case SearchType.Customers:
+                    return Customer.ToString();
+                    break;
+                default:
+                    return Contract.ToString();
+                    break;
+            }
+            return Contract.ToString();
+        }
+    }
+
+    public class SearchParamCustomerItem : ViewModelBase
+    {
+
+    }
+
+    public class SearchParamSupplierItem : ViewModelBase
+    {
+
+    }
+
+    public class SearchParamContractItem: ViewModelBase
     {
         /// <summary>
         /// Текст для поиска по предмету контракта
