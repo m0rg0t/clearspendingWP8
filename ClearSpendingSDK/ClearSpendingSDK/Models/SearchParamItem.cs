@@ -10,6 +10,13 @@ namespace ClearSpendingSDK.Models
 {
     public class SearchParamItem
     {
+        public SearchParamItem()
+        {
+            Contract = new SearchParamContractItem();
+            Supplier = new SearchParamSupplierItem();
+            Customer = new SearchParamCustomerItem();
+        }
+
         public enum SearchType
         {
             Contracts,

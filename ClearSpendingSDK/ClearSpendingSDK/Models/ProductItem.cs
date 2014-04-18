@@ -9,6 +9,10 @@ namespace ClearSpendingSDK.Models
 {
     public class ProductsItems
     {
+        public ProductsItems()
+        {
+            Product = new List<ProductItem>();
+        }
         public List<ProductItem> Product { get; set; }
     }
 
