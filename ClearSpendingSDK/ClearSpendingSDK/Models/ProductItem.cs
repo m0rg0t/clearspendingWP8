@@ -28,6 +28,25 @@ namespace ClearSpendingSDK.Models
             set { _name = value; }
         }
 
+        public string ShortName
+        {
+            private set { }
+            get
+            {
+                string outString = Name;
+                string[] query = outString.Split(' ').Take(10).ToArray();
+                if (query.Count() < 10)
+                {
+                    outString = Name;
+                }
+                else
+                {
+                    outString = String.Join(" ", query)+"...";
+                }
+                return outString;
+            }
+        }
+
         private Dictionary<string, string> _okei;
         /// <summary>
         /// 
