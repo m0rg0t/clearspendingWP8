@@ -1,0 +1,91 @@
+﻿<phone:PhoneApplicationPage
+    x:Class="ClearSpendingSearchWP8.Pages.SearchPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:phone="clr-namespace:Microsoft.Phone.Controls;assembly=Microsoft.Phone"
+    xmlns:shell="clr-namespace:Microsoft.Phone.Shell;assembly=Microsoft.Phone"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+    xmlns:telerikInput="clr-namespace:Telerik.Windows.Controls;assembly=Telerik.Windows.Controls.Input"
+    FontFamily="{StaticResource PhoneFontFamilyNormal}"
+    FontSize="{StaticResource PhoneFontSizeNormal}"
+    Foreground="{StaticResource PhoneForegroundBrush}"
+    SupportedOrientations="Portrait"  Orientation="Portrait"
+    shell:SystemTray.IsVisible="True" Loaded="PhoneApplicationPage_Loaded">
+	<phone:PhoneApplicationPage.ApplicationBar>
+		<shell:ApplicationBar>
+			<shell:ApplicationBarIconButton x:Name="SearchButton" IconUri="/Assets/AppBar/feature.search.png" Text="Поиск"/>
+		</shell:ApplicationBar>
+	</phone:PhoneApplicationPage.ApplicationBar>
+
+    <!--LayoutRoot is the root grid where all page content is placed-->
+    <Grid x:Name="LayoutRoot" Background="Transparent">
+        <!--Pivot Control-->
+        <phone:Pivot Title="{Binding Path=LocalizedResources.ApplicationTitle, Source={StaticResource LocalizedStrings}}">
+            <!--Pivot item one-->
+            <phone:PivotItem Header="Поиск">
+                <Grid>
+					<ScrollViewer>
+						<StackPanel>
+							<TextBlock Text="Тип поиска"/>
+                            <telerikInput:RadListPicker x:Name="SearchType" >
+                            </telerikInput:RadListPicker>
+                            
+                            <StackPanel Name="ContractsSearch">
+                                <TextBlock Text="Текст поиска"/>
+                                <TextBox Text="" Name="SearchText"/>
+
+                                <TextBlock Text="Номер реестровой записи контракта"/>
+                                <TextBox Text="" Name="regnum"/>
+
+                                <TextBlock Text="ИНН заказчика"/>
+                                <TextBox Text="" Name="customerinn"/>
+
+                                <TextBlock Text="КПП заказчика"/>
+                                <TextBox Text="" Name="customerkpp"/>
+
+                                <TextBlock Text="ИНН поставщика"/>
+                                <TextBox Text="" Name="supplierinn"/>
+
+                                <TextBlock Text="КПП поставщика"/>
+                                <TextBox Text="" Name="supplierkpp"/>
+
+                                <TextBlock Text="Код продукции по ОКДП"/>
+                                <TextBox Text="" Name="okdp"/>
+
+                                <TextBlock Text="Уровень бюджета"/>
+                                <TextBox Text="" Name="budgetlevel"/>
+
+                                <TextBlock Text="Регион заказчика"/>
+                                <!-- Код региона заказчика-->
+                                <telerikInput:RadListPicker x:Name="customerregion"/>
+
+<!--
+Диапазон дат заключения контракта
+Example: 27.01.2011-01.02.2011
+daterange
+Optional
+String
+Диапазон сумм контракта
+Example: 300000-400000
+pricerange
+Optional
+String
+Способ размещения заказа
+Example: 5
+placing-->
+                            </StackPanel>                            
+                        </StackPanel>
+					</ScrollViewer>
+                </Grid>
+            </phone:PivotItem>
+
+            <!--Pivot item two-->
+            <phone:PivotItem Header="Результаты">
+                <Grid/>
+            </phone:PivotItem>
+        </phone:Pivot>
+    </Grid>
+    
+</phone:PhoneApplicationPage>
