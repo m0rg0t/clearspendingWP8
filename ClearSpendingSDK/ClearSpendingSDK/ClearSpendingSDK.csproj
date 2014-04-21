@@ -39,6 +39,7 @@
     <Compile Include="Models\ContractResultItem.cs" />
     <Compile Include="Models\CustomerItem.cs" />
     <Compile Include="Models\ProductItem.cs" />
+    <Compile Include="Models\RegionItem.cs" />
     <Compile Include="Models\SearchParamItem.cs" />
     <Compile Include="Models\SupplierItem.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
