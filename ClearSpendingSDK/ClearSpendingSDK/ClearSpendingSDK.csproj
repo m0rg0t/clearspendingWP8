@@ -33,8 +33,10 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Compile Include="BudgetLevels.cs" />
     <Compile Include="ContractSearch.cs" />
     <Compile Include="CustomersSearch.cs" />
+    <Compile Include="Models\BudgetLevelItem.cs" />
     <Compile Include="Models\ContractItem.cs" />
     <Compile Include="Models\ContractResultItem.cs" />
     <Compile Include="Models\CustomerItem.cs" />

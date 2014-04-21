@@ -1,10 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using GalaSoft.MvvmLight;
-using System.Reflection;
 
 namespace ClearSpendingSDK.Models
 {
@@ -35,18 +30,18 @@ namespace ClearSpendingSDK.Models
             switch (CurrentType) {
                 case SearchType.Contracts:
                     return Contract.ToString();
-                    break;
+                    //break;
                 case SearchType.Suppliers:
                     return Supplier.ToString();
-                    break;
+                    //break;
                 case SearchType.Customers:
                     return Customer.ToString();
-                    break;
+                    //break;
                 default:
                     return Contract.ToString();
-                    break;
+                    //break;
             }
-            return Contract.ToString();
+            //return Contract.ToString();
         }
     }
 
@@ -55,59 +50,59 @@ namespace ClearSpendingSDK.Models
         public override string ToString()
         {
             string outString = "?";
-            if (String.IsNullOrEmpty(Namesearch))
+            if (!String.IsNullOrEmpty(Namesearch))
             {
                 outString = outString + "namesearch=" + Namesearch + "&";
             }
-            if (String.IsNullOrEmpty(Spzregnum))
+            if (!String.IsNullOrEmpty(Spzregnum))
             {
                 outString = outString + "spzregnum=" + Spzregnum + "&";
             }
-            if (String.IsNullOrEmpty(Inn))
+            if (!String.IsNullOrEmpty(Inn))
             {
                 outString = outString + "inn=" + Inn + "&";
             }
-            if (String.IsNullOrEmpty(Kpp))
+            if (!String.IsNullOrEmpty(Kpp))
             {
                 outString = outString + "kpp=" + Kpp + "&";
             }
-            if (String.IsNullOrEmpty(Okpo))
+            if (!String.IsNullOrEmpty(Okpo))
             {
                 outString = outString + "okpo=" + Okpo + "&";
             }
-            if (String.IsNullOrEmpty(Okved))
+            if (!String.IsNullOrEmpty(Okved))
             {
                 outString = outString + "okved=" + Okved + "&";
             }
-            if (String.IsNullOrEmpty(Name))
+            if (!String.IsNullOrEmpty(Name))
             {
                 outString = outString + "name=" + Name + "&";
             }
-            if (String.IsNullOrEmpty(Ogrn))
+            if (!String.IsNullOrEmpty(Ogrn))
             {
                 outString = outString + "ogrn=" + Ogrn + "&";
             }
-            if (String.IsNullOrEmpty(Okogu))
+            if (!String.IsNullOrEmpty(Okogu))
             {
                 outString = outString + "okogu=" + Okogu + "&";
             }
-            if (String.IsNullOrEmpty(Okato))
+            if (!String.IsNullOrEmpty(Okato))
             {
                 outString = outString + "okato=" + Okato + "&";
             }
-            if (String.IsNullOrEmpty(Subordination))
+            if (!String.IsNullOrEmpty(Subordination))
             {
                 outString = outString + "subordination=" + Subordination + "&";
             }
-            if (String.IsNullOrEmpty(Orgtype))
+            if (!String.IsNullOrEmpty(Orgtype))
             {
                 outString = outString + "orgtype=" + Orgtype + "&";
             }
-            if (String.IsNullOrEmpty(Regioncode))
+            if (!String.IsNullOrEmpty(Regioncode))
             {
                 outString = outString + "regioncode=" + Regioncode + "&";
             }
-            if (String.IsNullOrEmpty(Kladregion))
+            if (!String.IsNullOrEmpty(Kladregion))
             {
                 outString = outString + "kladregion=" + Kladregion + "&";
             }
@@ -278,23 +273,23 @@ namespace ClearSpendingSDK.Models
         public override string ToString()
         {
             string outString = "?";
-            if (String.IsNullOrEmpty(Namesearch))
+            if (!String.IsNullOrEmpty(Namesearch))
             {
                 outString = outString + "namesearch=" + Namesearch + "&";
             }
-            if (String.IsNullOrEmpty(Inn))
+            if (!String.IsNullOrEmpty(Inn))
             {
                 outString = outString + "inn=" + Inn + "&";
             }
-            if (String.IsNullOrEmpty(Kpp))
+            if (!String.IsNullOrEmpty(Kpp))
             {
                 outString = outString + "kpp=" + Kpp + "&";
             }
-            if (String.IsNullOrEmpty(Regioncode))
+            if (!String.IsNullOrEmpty(Regioncode))
             {
                 outString = outString + "regioncode=" + Regioncode + "&";
             }
-            if (String.IsNullOrEmpty(Orgform))
+            if (!String.IsNullOrEmpty(Orgform))
             {
                 outString = outString + "orgform=" + Orgform + "&";
             }
@@ -331,7 +326,31 @@ namespace ClearSpendingSDK.Models
         /// КПП поставщика
         /// </summary>
         public string Supplierkpp { get; set; }
-        
+
+        private string _customerregion;
+        /// <summary>
+        /// Идентификатор региона
+        /// </summary>
+        public string Customerregion
+        {
+            get { return _customerregion; }
+            set { _customerregion = value; }
+        }
+
+        /*private List<string> _regionItems = new List<string>();
+        /// <summary>
+        /// Список регионов
+        /// </summary>
+        public List<string> RegionItems
+        {
+            get { return _regionItems; }
+            set
+            {
+                _regionItems = value;
+                RaisePropertyChanged("RegionItems");
+            }
+        }*/
+
 
         private int _page = 1;
         /// <summary>
@@ -378,25 +397,29 @@ namespace ClearSpendingSDK.Models
         public override string ToString()
         {
             string outString = "?";
-            if (String.IsNullOrEmpty(Productsearch))
+            if (!String.IsNullOrEmpty(Productsearch))
             {
                 outString = outString + "productsearch=" + Productsearch + "&";
             }
-            if (String.IsNullOrEmpty(Regnum))
+            if (!String.IsNullOrEmpty(Regnum))
             {
                 outString = outString + "regnum=" + Regnum + "&";
             }
-            if (String.IsNullOrEmpty(Customerinn))
+            if (!String.IsNullOrEmpty(Customerinn))
             {
                 outString = outString + "customerinn=" + Customerinn + "&";
             }
-            if (String.IsNullOrEmpty(Customerkpp))
+            if (!String.IsNullOrEmpty(Customerkpp))
             {
                 outString = outString + "customerkpp=" + Customerkpp + "&";
             }
-            if (String.IsNullOrEmpty(Supplierkpp))
+            if (!String.IsNullOrEmpty(Supplierkpp))
             {
                 outString = outString + "supplierkpp=" + Supplierkpp + "&";
+            }
+            if (!String.IsNullOrEmpty(Customerregion))
+            {
+                outString = outString + "customerregion=" + Customerregion + "&";
             }
             if ((DaterangeStart.Date != DateTime.Now.Date) || 
                 (DaterangeEnd.Date != DateTime.Now.Date))
