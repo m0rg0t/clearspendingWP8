@@ -32,75 +32,40 @@
     <!--LayoutRoot is the root grid where all page content is placed-->
     <Grid x:Name="LayoutRoot" Background="Transparent">
         <!--Pivot Control-->
-        <phone:Pivot Title="{Binding Path=LocalizedResources.ApplicationTitle, Source={StaticResource LocalizedStrings}}">
+        <phone:Pivot Name="CustomersPivot" Title="{Binding Path=LocalizedResources.ApplicationTitle, Source={StaticResource LocalizedStrings}}">
             <!--Pivot item one-->
             <phone:PivotItem Header="Поиск">
                 <Grid>
                     <ScrollViewer>
                         <StackPanel>
-                            <telerikInput:RadDataForm Grid.Row="1" Margin="12,0,12,12" x:Name="CustomersSearch">
+                            <telerikInput:RadDataForm Grid.Row="1" Margin="12,0,12,12" 
+                                                      EditorCreationMode="CreateByDefault"
+                                                      x:Name="CustomersSearch">
                                 <!--<telerikInput:RadDataForm.CurrentItem>
                                     <models:SearchParamItem/>
                                 </telerikInput:RadDataForm.CurrentItem>-->
                                 <Grid>
-                                    <telerikInput:DataField Header="Текст для поиска" TargetProperty="Productsearch">
+                                    <telerikInput:DataField Header="Текст для поиска" TargetProperty="Namesearch">
                                         <telerikInput:DataField.Validators>
                                             <telerikInput:NonEmptyStringValidator/>
                                         </telerikInput:DataField.Validators>
                                     </telerikInput:DataField>
 
-                                    <telerikInput:DataField Header="Номер реестровой записи контракта" TargetProperty="Regnum">
-                                        <!--<telerikInput:DataField.Validators>
-                                            <telerikInput:NonEmptyStringValidator/>
-                                        </telerikInput:DataField.Validators>-->
-                                    </telerikInput:DataField>
+                                    <telerikInput:DataField Header="Регион" TargetProperty="RegionItems"/>
 
-                                    <telerikInput:DataField Header="ИНН заказчика" TargetProperty="Customerinn">
-                                        <!--<telerikInput:DataField.Validators>
-                                            <telerikInput:NonEmptyStringValidator/>
-                                        </telerikInput:DataField.Validators>-->
-                                    </telerikInput:DataField>
-
-                                    <telerikInput:DataField Header="КПП заказчика" TargetProperty="Customerkpp">
-                                        <!--<telerikInput:DataField.Validators>
-                                            <telerikInput:NonEmptyStringValidator/>
-                                        </telerikInput:DataField.Validators>-->
-                                    </telerikInput:DataField>
-
-                                    <telerikInput:DataField Header="КПП поставщика" TargetProperty="Supplierkpp">
-                                        <!--<telerikInput:DataField.Validators>
-                                            <telerikInput:NonEmptyStringValidator/>
-                                        </telerikInput:DataField.Validators>-->
-                                    </telerikInput:DataField>
-
-
-                                    <telerikInput:DataField Header="" TargetProperty="DaterangeStart">
-                                        <telerikInput:DataField.EditorStyles>
-                                            <Style TargetType="telerikInput:RadDatePicker">
-                                                <Setter Property="EmptyContent" Value="Дата начала заключения"/>
-                                            </Style>
-                                        </telerikInput:DataField.EditorStyles>
-                                        <!--<telerikInput:DataField.Validators>
-                                            <telerikInput:NonEmptyStringValidator/>
-                                        </telerikInput:DataField.Validators>-->
-                                    </telerikInput:DataField>
-                                    <telerikInput:DataField Header="" TargetProperty="DaterangeEnd">
-                                        <telerikInput:DataField.EditorStyles>
-                                            <Style TargetType="telerikInput:RadDatePicker">
-                                                <Setter Property="EmptyContent" Value="Дата завершения заключения"/>
-                                            </Style>
-                                        </telerikInput:DataField.EditorStyles>
-                                        <!--<telerikInput:DataField.Validators>
-                                            <telerikInput:NonEmptyStringValidator/>
-                                        </telerikInput:DataField.Validators>-->
-                                    </telerikInput:DataField>
-
-                                    <telerikInput:DataField Header="Код продукции по ОКДП" TargetProperty="Okdp"/>
-                                    <!--<telerikInput:DataField Header="Option selection 3" TargetProperty="Option3">
-                                        <telerikInput:DataField.Validators>
-                                            <telerikInput:NonEmptyStringValidator/>
-                                        </telerikInput:DataField.Validators>
-                                    </telerikInput:DataField>-->
+                                    <telerikInput:DataField Header="Текст для поиска" TargetProperty="Spzregnum"/>
+                                    <telerikInput:DataField Header="ИНН" TargetProperty="Inn"/>
+                                    <telerikInput:DataField Header="КПП" TargetProperty="Kpp"/>
+                                    <telerikInput:DataField Header="ОКПО заказчика" TargetProperty="Okpo"/>
+                                    <telerikInput:DataField Header="ОКВЭД заказчика" TargetProperty="Okved"/>
+                                    <telerikInput:DataField Header="Полное и точное назавание заказчика" 
+                                                            TargetProperty="Name"/>
+                                    <telerikInput:DataField Header="ОГРН заказчикаа" 
+                                                            TargetProperty="Ogrn"/>
+                                    <telerikInput:DataField Header="Код ОКОГУ заказчика" 
+                                                            TargetProperty="Okogu"/>
+                                    <telerikInput:DataField Header="ОКАТО заказчика" 
+                                                            TargetProperty="Okato"/>
                                 </Grid>
                             </telerikInput:RadDataForm>
                         </StackPanel>
@@ -114,8 +79,7 @@
                     <telerikData:RadJumpList 
                         Margin="0,0,0,0" Width="Auto"                
                         x:Name="ResultsCustomers"   
-                        ItemTemplate="{StaticResource ContractItem}"                        
-                                               
+                        ItemTemplate="{StaticResource CustomerItem}"                                
                         VerticalAlignment="Stretch"
                         HorizontalContentAlignment="Left" HorizontalAlignment="Stretch" 
                         EmptyContent="{Binding Path=LocalizedResources.NoData, 

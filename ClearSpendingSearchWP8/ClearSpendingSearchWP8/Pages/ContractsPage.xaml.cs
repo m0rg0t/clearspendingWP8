@@ -42,34 +42,6 @@ namespace ClearSpendingSearchWP8.Pages
             get;
             set;
         }
-
-        /*private string _regionItems;
-        /// <summary>
-        /// 
-        /// </summary>
-        [GenericListEditor(typeof(CountriesInfoProvider))]
-        public string RegionItems
-        {
-            get { return _regionItems; }
-            set
-            {
-                _regionItems = value;
-                try
-                {
-                    this.Customerregion =
-                        ViewModelLocator.MainStatic.Regions.RegionItems.FirstOrDefault(c => c.Name == value).Id;
-                }
-                catch
-                {
-                }
-            }
-        }*/
-
-        /*public ExtendedObject(SearchParamContractItem parent)
-        {
-            foreach (PropertyInfo prop in parent.GetType().GetProperties())
-                GetType().GetProperty(prop.Name).SetValue(this, prop.GetValue(parent, null), null);
-        }*/
     }
 
     public partial class ContractsPage : PhoneApplicationPage
@@ -109,10 +81,10 @@ namespace ClearSpendingSearchWP8.Pages
 
             ViewModelLocator.MainStatic.Loading = true;
             //start searching
-            await ViewModelLocator.MainStatic.ContractSearchItem.StartSearch(ViewModelLocator.MainStatic.SearchParams);
+            await ViewModelLocator.MainStatic.SearchItem.StartSearch(ViewModelLocator.MainStatic.SearchParams);
             ViewModelLocator.MainStatic.Loading = false;
 
-            ResultsContracts.ItemsSource = ViewModelLocator.MainStatic.ContractSearchItem.ContractItems;
+            ResultsContracts.ItemsSource = ViewModelLocator.MainStatic.SearchItem.ContractItems;
             ContractPivot.SelectedIndex = 1; // = ContractPivot.Items[0];
         }
 
@@ -120,7 +92,7 @@ namespace ClearSpendingSearchWP8.Pages
         {
             try
             {
-                ViewModelLocator.MainStatic.ContractSearchItem.CurrentContractItem = (ContractItem)ResultsContracts.SelectedItem;
+                ViewModelLocator.MainStatic.SearchItem.CurrentContractItem = (ContractItem)ResultsContracts.SelectedItem;
                 NavigationService.Navigate(new Uri("/Pages/ContractDetailPage.xaml", UriKind.Relative));
             }
             catch { };

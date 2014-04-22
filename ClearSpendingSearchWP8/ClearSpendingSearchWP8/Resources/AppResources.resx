@@ -146,4 +146,10 @@
   <data name="Sum" xml:space="preserve">
     <value>Сумма: </value>
   </data>
+  <data name="ContractsCount" xml:space="preserve">
+    <value>Количество контрактов: </value>
+  </data>
+  <data name="CustomersSum" xml:space="preserve">
+    <value>Сумма: </value>
+  </data>
 </root>

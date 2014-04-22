@@ -37,6 +37,32 @@
             </Grid>
         </DataTemplate>
 
+        <DataTemplate x:Name="CustomerItem">
+            <Grid Margin="15,20,0,0" Width="Auto">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                </Grid.RowDefinitions>
+                <TextBlock Grid.Row="0" Text="{Binding FullName}" TextWrapping="Wrap" />
+                <StackPanel Grid.Row="1" Orientation="Horizontal">
+                    <TextBlock Text="{Binding Path=LocalizedResources.ContractsCount, 
+                        Source={StaticResource LocalizedStrings}}" TextWrapping="Wrap" />
+                    <TextBlock Text="{Binding ContractsCount}" TextWrapping="Wrap" />
+                </StackPanel>
+                <StackPanel Grid.Row="2" Orientation="Horizontal">
+                    <TextBlock Text="{Binding Path=LocalizedResources.CustomersSum, 
+                        Source={StaticResource LocalizedStrings}}" TextWrapping="Wrap" />
+                    <TextBlock Text="{Binding ContractsSum}" TextWrapping="Wrap" />
+                    <TextBlock Text="{Binding Path=LocalizedResources.Ryb, 
+                        Source={StaticResource LocalizedStrings}}" TextWrapping="Wrap" />
+                </StackPanel>
+            </Grid>
+        </DataTemplate>
+
         <DataTemplate x:Name="ProductItem">
             <Grid Margin="15,20,0,0" Width="Auto">
                 <Grid.ColumnDefinitions>

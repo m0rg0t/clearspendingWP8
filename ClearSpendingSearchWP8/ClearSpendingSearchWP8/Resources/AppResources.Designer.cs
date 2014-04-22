@@ -79,6 +79,24 @@ namespace ClearSpendingSearchWP8.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Количество контрактов: .
+        /// </summary>
+        public static string ContractsCount {
+            get {
+                return ResourceManager.GetString("ContractsCount", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Сумма: .
+        /// </summary>
+        public static string CustomersSum {
+            get {
+                return ResourceManager.GetString("CustomersSum", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Нет данных.
         /// </summary>
         public static string NoData {

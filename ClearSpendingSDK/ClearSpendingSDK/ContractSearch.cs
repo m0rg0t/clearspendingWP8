@@ -25,7 +25,7 @@ namespace ClearSpendingSDK
                     await SearchContractsData(paramsItem);
                     break;
                 case SearchParamItem.SearchType.Customers:
-                    await SearchContractsData(paramsItem);
+                    await SearchCustomersData(paramsItem);
                     break;
                 case SearchParamItem.SearchType.Suppliers:
                     await SearchSuppliersData(paramsItem);
@@ -74,6 +74,23 @@ namespace ClearSpendingSDK
             catch
             {
             }
+
+            try
+            {
+                Total = resultJObject["customers"]["total"].Value<int>();
+            }
+            catch
+            {
+                Total = 0;
+            }
+
+            try
+            {
+                CustomerItems = new ObservableCollection<CustomerItem>();
+                CustomerItems = JsonConvert.DeserializeObject<ObservableCollection<CustomerItem>>(resultJObject["customers"]["data"].ToString());
+            }
+            catch { }
+
             return true;
         }
 
@@ -166,11 +183,11 @@ namespace ClearSpendingSDK
             }
         }
 
-        private ObservableCollection<ContractItem> _customerItems;
+        private ObservableCollection<CustomerItem> _customerItems;
         /// <summary>
         /// 
         /// </summary>
-        public ObservableCollection<ContractItem> CustomerItems
+        public ObservableCollection<CustomerItem> CustomerItems
         {
             get { return _customerItems; }
             set

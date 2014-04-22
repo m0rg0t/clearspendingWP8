@@ -40,7 +40,7 @@ namespace ClearSpendingSearchWP8.ViewModel
             /*HttpResponse<MyClass> response = Unirest.get("https://clearspending.p.mashape.com/v1/contracts/select/?regnum=0361300001711000053&customerinn=6504020670&customerkpp=650401001&supplierinn=6504016811&supplierkpp=650401001&okdp=1520110&budgetlevel=02&customerregion=65&daterange=27.01.2011-01.02.2011&pricerange=300000-400000&placing=5&page=1&perpage=50&returnfields=%5Bprice%2CregNum%2Cproducts%5D&sort=price")
               .header("X-Mashape-Authorization", "IcScDgM8G8TgCWJfj7SzIFf2NfkAoJMH")
               .asJson<MyClass>();*/
-            this.ContractSearchItem = new ContractSearch();
+            this.SearchItem = new ContractSearch();
 
             Regions = new RegionsData();
             BudgetLevels = new BudgetLevels();
@@ -83,7 +83,7 @@ namespace ClearSpendingSearchWP8.ViewModel
             }
         }
 
-        public ContractSearch ContractSearchItem { get; set; }
+        public ContractSearch SearchItem { get; set; }
 
         private bool _loading = false;
         /// <summary>

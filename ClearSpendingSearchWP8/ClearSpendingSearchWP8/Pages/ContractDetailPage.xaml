@@ -19,7 +19,7 @@
     FontSize="{StaticResource PhoneFontSizeNormal}"
     Foreground="{StaticResource PhoneForegroundBrush}"
     SupportedOrientations="Portrait"  Orientation="Portrait"
-    DataContext="{Binding Main.ContractSearchItem.CurrentContractItem, Source={StaticResource Locator}}"
+    DataContext="{Binding Main.SearchItem.CurrentContractItem, Source={StaticResource Locator}}"
     shell:SystemTray.IsVisible="True">
 
     <!--LayoutRoot is the root grid where all page content is placed-->
@@ -31,17 +31,17 @@
                 <Grid>
                     <ScrollViewer>
                         <StackPanel>
-                            <TextBlock Text="Предмет контракта:"></TextBlock>
-                            <TextBlock TextWrapping="Wrap" Text="{Binding ProductTitle}"/>
-
-                            <TextBlock Text="Цена:"></TextBlock>
+                            <TextBlock Text="Цена" Style="{StaticResource PhoneTextTitle2Style}"></TextBlock>
                             <TextBlock TextWrapping="Wrap" Text="{Binding Price}"/>
 
-                            <TextBlock Text="Номер реестровой записи контракта:"></TextBlock>
+                            <TextBlock Text="Номер контракта" Style="{StaticResource PhoneTextTitle2Style}"></TextBlock>
                             <TextBlock TextWrapping="Wrap" Text="{Binding RegNum}"/>
 
-                            <TextBlock Text="Дата:"></TextBlock>
+                            <TextBlock Text="Дата" Style="{StaticResource PhoneTextTitle2Style}"></TextBlock>
                             <TextBlock TextWrapping="Wrap" Text="{Binding SignDate}"/>
+
+                            <TextBlock Text="Предмет контракта" Style="{StaticResource PhoneTextTitle2Style}"></TextBlock>
+                            <TextBlock TextWrapping="Wrap" Text="{Binding ProductTitle}"/>
                         </StackPanel>
                     </ScrollViewer>
                 </Grid>
@@ -69,13 +69,24 @@
                 <Grid>
                     <ScrollViewer>
                         <StackPanel>
-                            
+                            <TextBlock Text="Наименование" Style="{StaticResource PhoneTextTitle2Style}">
+                            </TextBlock>
+                            <TextBlock TextWrapping="Wrap" Text="{Binding Customer.FullName}"/>
+
+                            <TextBlock Text="КПП" Style="{StaticResource PhoneTextTitle2Style}"/>
+                            <TextBlock TextWrapping="Wrap" Text="{Binding Customer.Kpp}"/>
+
+                            <TextBlock Text="ИНН" Style="{StaticResource PhoneTextTitle2Style}"/>
+                            <TextBlock TextWrapping="Wrap" Text="{Binding Customer.Inn}"/>
+
+                            <TextBlock Text="Идентификатор заказчика" Style="{StaticResource PhoneTextTitle2Style}"/>
+                            <TextBlock TextWrapping="Wrap" Text="{Binding Customer.RegNum}"/>
                         </StackPanel>
                     </ScrollViewer>
                 </Grid>
             </phone:PivotItem>
 
-            <phone:PivotItem Header="Поставщик">
+            <phone:PivotItem Header="Поставщики">
                 <Grid>
                     <ScrollViewer>
                         <StackPanel>
