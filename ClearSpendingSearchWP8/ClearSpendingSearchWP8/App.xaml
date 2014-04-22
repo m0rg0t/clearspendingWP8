@@ -37,6 +37,28 @@
             </Grid>
         </DataTemplate>
 
+        <DataTemplate x:Name="SuppliersItem">
+            <Grid Margin="15,20,0,0" Width="Auto">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                </Grid.RowDefinitions>
+                <TextBlock Grid.Row="0" Text="{Binding OrganizationName}" 
+                           Style="{StaticResource PhoneTextTitle2Style}"
+                           TextWrapping="Wrap" />
+                <!--<StackPanel Grid.Row="1" Orientation="Horizontal">
+                    <TextBlock Text="{Binding Path=LocalizedResources.ContractPrice, 
+                        Source={StaticResource LocalizedStrings}}" TextWrapping="Wrap" />
+                    <TextBlock Text="{Binding Price}" TextWrapping="Wrap" />
+                    <TextBlock Text="{Binding Path=LocalizedResources.Ryb, 
+                        Source={StaticResource LocalizedStrings}}" TextWrapping="Wrap" />
+                </StackPanel>-->
+            </Grid>
+        </DataTemplate>
+
         <DataTemplate x:Name="CustomerItem">
             <Grid Margin="15,20,0,0" Width="Auto">
                 <Grid.ColumnDefinitions>
@@ -47,7 +69,8 @@
                     <RowDefinition Height="Auto"/>
                     <RowDefinition Height="Auto"/>
                 </Grid.RowDefinitions>
-                <TextBlock Grid.Row="0" Text="{Binding FullName}" TextWrapping="Wrap" />
+                <TextBlock Grid.Row="0" Text="{Binding FullName}" TextWrapping="Wrap" 
+                           Style="{StaticResource PhoneTextTitle2Style}" />
                 <StackPanel Grid.Row="1" Orientation="Horizontal">
                     <TextBlock Text="{Binding Path=LocalizedResources.ContractsCount, 
                         Source={StaticResource LocalizedStrings}}" TextWrapping="Wrap" />

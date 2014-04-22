@@ -44,7 +44,7 @@ namespace ClearSpendingSDK
             string values = paramsItem.ToString();
             HttpResponseMessage result = await
                 http.GetAsync(
-                    new Uri("https://clearspending.p.mashape.com/v1/customers/search/" + values));
+                    new Uri("https://clearspending.p.mashape.com/v1/suppliers/search/" + values));
             RawResult = await result.Content.ReadAsStringAsync();
             JObject resultJObject = new JObject();
             try
@@ -54,6 +54,14 @@ namespace ClearSpendingSDK
             catch
             {
             }
+
+            try
+            {
+                SupplierItems = new ObservableCollection<SupplierItem>();
+                SupplierItems = JsonConvert.DeserializeObject<ObservableCollection<SupplierItem>>(resultJObject["suppliers"]["data"].ToString());
+            }
+            catch { }
+
             return true;
         }
 
@@ -183,6 +191,21 @@ namespace ClearSpendingSDK
             }
         }
 
+        private ObservableCollection<SupplierItem> _supplierItems;
+        /// <summary>
+        /// 
+        /// </summary>
+        public ObservableCollection<SupplierItem> SupplierItems
+        {
+            get { return _supplierItems; }
+            set
+            {
+                _supplierItems = value;
+                RaisePropertyChanged("SupplierItems");
+            }
+        }
+        
+
         private ObservableCollection<CustomerItem> _customerItems;
         /// <summary>
         /// 
@@ -196,6 +219,17 @@ namespace ClearSpendingSDK
                 RaisePropertyChanged("CustomerItems");
             }
         }
+
+        /*private ObservableCollection<SupplierItem> _supplierItems;
+        /// <summary>
+        /// 
+        /// </summary>
+        public ObservableCollection<SupplierItem> SupplierItems
+        {
+            get { return _supplierItems; }
+            set { _supplierItems = value; }
+        }*/
+        
         
 
         private ContractItem _currentContractItem = null;

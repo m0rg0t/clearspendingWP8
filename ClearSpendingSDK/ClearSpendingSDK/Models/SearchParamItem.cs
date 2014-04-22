@@ -252,14 +252,17 @@ namespace ClearSpendingSDK.Models
         /// </summary>
 	    public int Page
 	    {
-		    get { return _page;}
+            get
+            {
+                return _page;
+            }
                 set
                 {
                     _page = value;
                 }
 	    }
 
-        private int _perpage;
+        private int _perpage = 50;
         /// <summary>
         /// Число элементов выводимых за раз
         /// Example: 50

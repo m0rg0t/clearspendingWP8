@@ -187,6 +187,10 @@
     </None>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Assets\AppBar\DateTimePickerCancel.png" />
+    <Content Include="Assets\AppBar\DateTimePickerOk.png" />
+    <Content Include="Assets\DateTimePickerCancel.png" />
+    <Content Include="Assets\DateTimePickerOk.png" />
     <Content Include="Assets\MenuTiles\1f477-Construction Worker.100.png" />
     <Content Include="Assets\MenuTiles\1f4c8-Up chart.100.png" />
     <Content Include="Assets\MenuTiles\1f4dd-Notes.100.png" />
