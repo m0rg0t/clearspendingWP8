@@ -124,6 +124,9 @@
     <Compile Include="Pages\StatisticsPage.xaml.cs">
       <DependentUpon>StatisticsPage.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Pages\SuppliersDetailPage.xaml.cs">
+      <DependentUpon>SuppliersDetailPage.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Pages\SuppliersPage.xaml.cs">
       <DependentUpon>SuppliersPage.xaml</DependentUpon>
     </Compile>
@@ -171,6 +174,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Pages\StatisticsPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Pages\SuppliersDetailPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

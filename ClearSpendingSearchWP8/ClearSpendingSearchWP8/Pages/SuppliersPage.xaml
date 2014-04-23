@@ -19,11 +19,18 @@
     
     Loaded="SuppliersPage_OnLoaded"
     
+    shell:SystemTray.IsVisible="{Binding Loading}"
+    shell:SystemTray.Opacity="0"
+    DataContext="{Binding Main, Source={StaticResource Locator}}"
+    
     FontFamily="{StaticResource PhoneFontFamilyNormal}"
     FontSize="{StaticResource PhoneFontSizeNormal}"
     Foreground="{StaticResource PhoneForegroundBrush}"
-    SupportedOrientations="Portrait"  Orientation="Portrait"
-    shell:SystemTray.IsVisible="True">
+    SupportedOrientations="Portrait"  Orientation="Portrait">
+
+    <shell:SystemTray.ProgressIndicator>
+        <shell:ProgressIndicator IsIndeterminate="true" IsVisible="{Binding Loading}" Text="Загрузка" />
+    </shell:SystemTray.ProgressIndicator>
 
     <phone:PhoneApplicationPage.ApplicationBar>
         <shell:ApplicationBar>
@@ -73,7 +80,7 @@
                         VerticalAlignment="Stretch"
                         HorizontalContentAlignment="Left" HorizontalAlignment="Stretch" 
                         EmptyContent="{Binding Path=LocalizedResources.NoData, 
-                        Source={StaticResource LocalizedStrings}}" ItemTap="ResultsCustomers_OnItemTap">
+                        Source={StaticResource LocalizedStrings}}" ItemTap="ResultsSuppliers_OnItemTap">
                         <!--ItemsSource="{Binding Path=ContractSearchItem.Items}"                        
                         DataContext="{Binding Main, Source={StaticResource Locator}}"-->
                     </telerikData:RadJumpList>

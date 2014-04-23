@@ -91,16 +91,15 @@ namespace ClearSpendingSearchWP8.Pages
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        private async void ResultsCustomers_OnItemTap(object sender, ListBoxItemTapEventArgs e)
+        private async void ResultsSuppliers_OnItemTap(object sender, ListBoxItemTapEventArgs e)
         {
             //throw new NotImplementedException();
             try
             {
-
+                ViewModelLocator.MainStatic.SearchItem.CurrentSupplierItem = (SupplierItem)ResultsSuppliers.SelectedItem;
+                NavigationService.Navigate(new Uri("/Pages/SuppliersDetailPage.xaml", UriKind.Relative));
             }
-            catch
-            {
-            }
+            catch { };
         }
 
         private void SuppliersPage_OnLoaded(object sender, RoutedEventArgs e)

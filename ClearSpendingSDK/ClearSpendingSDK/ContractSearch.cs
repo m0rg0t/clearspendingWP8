@@ -244,6 +244,19 @@ namespace ClearSpendingSDK
                 RaisePropertyChanged("CurrentContractItem");
             }
         }
+
+        private SupplierItem _currentSupplierItem;
+
+        public SupplierItem CurrentSupplierItem
+        {
+            get { return _currentSupplierItem; }
+            set
+            {
+                _currentSupplierItem = value;
+                RaisePropertyChanged("CurrentSupplierItem");
+            }
+        }
+        
         
 
         private string _rawResult;
