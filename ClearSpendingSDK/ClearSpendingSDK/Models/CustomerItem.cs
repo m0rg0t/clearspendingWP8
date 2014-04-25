@@ -20,7 +20,24 @@ namespace ClearSpendingSDK.Models
         /// <summary>
         /// 
         /// </summary>
-        public string RegNum { get; set; }
+        private string _regNum;
+        /// <summary>
+        /// 
+        /// </summary>
+        public string RegNum
+        {
+            get { return _regNum; }
+            set
+            {
+                _regNum = value;
+                if (!String.IsNullOrEmpty(_regNum))
+                {
+                    this.RegNumber = _regNum;
+                }
+                RaisePropertyChanged("RegNum");
+            }
+        }
+        
         /// <summary>
         /// 
         /// </summary>
@@ -29,14 +46,35 @@ namespace ClearSpendingSDK.Models
         /// 
         /// </summary>
         public string Inn { get; set; }
+
+        private double _contractsCount;
         /// <summary>
         /// 
         /// </summary>
-        public double ContractsCount { get; set; }
+        public double ContractsCount
+        {
+            get { return _contractsCount; }
+            set
+            {
+                _contractsCount = value;
+                RaisePropertyChanged("ContractsCount");
+            }
+        }
+
+        private double _contractsSum;
         /// <summary>
         /// 
         /// </summary>
-        public double ContractsSum { get; set; }
+        public double ContractsSum
+        {
+            get { return _contractsSum; }
+            set
+            {
+                _contractsSum = value;
+                RaisePropertyChanged("ContractsSum");
+            }
+        }
+
         /// <summary>
         /// 
         /// </summary>
@@ -65,6 +103,15 @@ namespace ClearSpendingSDK.Models
                 string json = resultJObject["customers"]["data"].ToString();
                 var items = JsonConvert.DeserializeObject<List<CustomerDetailedItem>>(json);
                 Details = items.FirstOrDefault();
+
+                try
+                {
+                    this.ContractsSum = resultJObject["customers"]["data"][0]["contractsSum"].Value<double>();
+                    this.ContractsCount = resultJObject["customers"]["data"][0]["contractsCount"].Value<double>();
+                }
+                catch
+                {
+                }
             }
             catch
             {

@@ -69,8 +69,14 @@ namespace ClearSpendingSearchWP8.Pages
             this.ContractsSearch.Commit();
             try
             {
-                item.Customerregion =
-                    ViewModelLocator.MainStatic.Regions.RegionItems.FirstOrDefault(c => c.Name == item.RegionItems).SubjectCode.ToString();
+                var regitem =
+                    ViewModelLocator.MainStatic.Regions.RegionItems.FirstOrDefault(c => c.Name == item.RegionItems);
+                if (regitem != null)
+                {
+                    item.Customerregion =
+                        regitem.SubjectCode.ToString();
+                }
+                else { item.Customerregion = ""; }
             }
             catch
             {

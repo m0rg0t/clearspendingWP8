@@ -49,7 +49,12 @@
                             <TextBlock TextWrapping="Wrap" Text="{Binding ContractsCount}"/>
 
                             <TextBlock Text="Сумма контрактов" Style="{StaticResource PhoneTextTitle2Style}"></TextBlock>
-                            <TextBlock TextWrapping="Wrap" Text="{Binding ContractsSum}"/>
+                            <StackPanel Orientation="Horizontal">
+                                <TextBlock TextWrapping="Wrap" Text="{Binding ContractsSum}"/>
+                                <TextBlock Text="{Binding Path=LocalizedResources.Ryb, 
+                        Source={StaticResource LocalizedStrings}}" TextWrapping="Wrap" />
+                            </StackPanel>
+                            
                         </StackPanel>
                     </ScrollViewer>
                 </Grid>

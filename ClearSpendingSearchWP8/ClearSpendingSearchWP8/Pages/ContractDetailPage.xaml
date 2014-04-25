@@ -81,6 +81,9 @@
 
                             <TextBlock Text="Идентификатор заказчика" Style="{StaticResource PhoneTextTitle2Style}"/>
                             <TextBlock TextWrapping="Wrap" Text="{Binding Customer.RegNum}"/>
+
+                            <TextBlock Name="CustomerReadMore"  Text="Подробнее..." Style="{StaticResource PhoneTextTitle2Style}" Margin="12,15,12,0" Tap="TextBlock_Tap"/>
+
                         </StackPanel>
                     </ScrollViewer>
                 </Grid>

@@ -118,12 +118,14 @@ namespace ClearSpendingSDK
             }
             catch
             {
+                resultJObject = null;
             }
 
             ContractItems = new List<ContractItem>();
 
             try
             {
+                if (resultJObject!=null)
                 Total = resultJObject["contracts"]["total"].Value<int>();
             }
             catch
@@ -133,40 +135,53 @@ namespace ClearSpendingSDK
 
             try
             {
-                JArray dataItems = JArray.Parse(resultJObject["contracts"]["data"].ToString());
-                foreach (var item in dataItems)
+                if (resultJObject != null)
                 {
-                    var curContract = new ContractItem();
-                    curContract.Customer = JsonConvert.DeserializeObject<CustomerItem>(item["customer"].ToString());
-                    try
+                    JArray dataItems = JArray.Parse(resultJObject["contracts"]["data"].ToString());
+                    foreach (var item in dataItems)
                     {
-                        curContract.Products = JsonConvert.DeserializeObject<ProductsItems>(item["products"].ToString());
-                    }
-                    catch
-                    {
+                        var curContract = new ContractItem();
+                        curContract.Customer = JsonConvert.DeserializeObject<CustomerItem>(item["customer"].ToString());
                         try
                         {
-                            ProductItem product = JsonConvert.DeserializeObject<ProductItem>(item["products"]["product"].ToString());
-                            curContract.Products.Product.Add(product);
+                            curContract.Products =
+                                JsonConvert.DeserializeObject<ProductsItems>(item["products"].ToString());
                         }
-                        catch { };
-                    };
+                        catch
+                        {
+                            try
+                            {
+                                ProductItem product =
+                                    JsonConvert.DeserializeObject<ProductItem>(item["products"]["product"].ToString());
+                                curContract.Products.Product.Add(product);
+                            }
+                            catch
+                            {
+                            }
+                            ;
+                        }
+                        ;
 
-                    curContract.Price = item["price"].ToString();
-                    curContract.Id = item["id"].ToString();
-                    curContract.RegNum = item["regNum"].ToString();
-                    curContract.SearchRank = item["searchRank"].ToString();
-                    try
-                    {
-                        curContract.SignDate = item["signDate"].Value<DateTime>();
+                        curContract.Price = item["price"].ToString();
+                        curContract.Id = item["id"].ToString();
+                        curContract.RegNum = item["regNum"].ToString();
+                        curContract.SearchRank = item["searchRank"].ToString();
+                        try
+                        {
+                            curContract.SignDate = item["signDate"].Value<DateTime>();
+                        }
+                        catch
+                        {
+                        }
+                        ;
+                        curContract.Suppliers =
+                            JsonConvert.DeserializeObject<SuppliersItems>(item["suppliers"].ToString());
+
+                        ContractItems.Add(curContract);
                     }
-                    catch { };
-                    curContract.Suppliers = JsonConvert.DeserializeObject<SuppliersItems>(item["suppliers"].ToString());
-
-                    ContractItems.Add(curContract);
+                    //ContractItems = JsonConvert.DeserializeObject<List<ContractItem>>(resultJObject["contracts"]["data"].ToString());
+                    RaisePropertyChanged("ContractItems");
                 }
-                //ContractItems = JsonConvert.DeserializeObject<List<ContractItem>>(resultJObject["contracts"]["data"].ToString());
-                RaisePropertyChanged("ContractItems");
             }
             catch (Exception ex)
             {
