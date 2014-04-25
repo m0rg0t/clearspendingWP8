@@ -10,22 +10,72 @@
     FontFamily="{StaticResource PhoneFontFamilyNormal}"
     FontSize="{StaticResource PhoneFontSizeNormal}"
     Foreground="{StaticResource PhoneForegroundBrush}"
+    
+    shell:SystemTray.IsVisible="{Binding Loading}"
+    shell:SystemTray.Opacity="0"    
+    
+    DataContext="{Binding Main, Source={StaticResource Locator}}"
     SupportedOrientations="Portrait"  Orientation="Portrait"
-    shell:SystemTray.IsVisible="True">
+    Loaded="PhoneApplicationPage_Loaded">
+
+    <shell:SystemTray.ProgressIndicator>
+        <shell:ProgressIndicator IsIndeterminate="true" IsVisible="{Binding Loading}" Text="Загрузка" />
+    </shell:SystemTray.ProgressIndicator>
 
     <!--LayoutRoot is the root grid where all page content is placed-->
-    <Grid x:Name="LayoutRoot" Background="Transparent">
+    <Grid x:Name="LayoutRoot" Background="Transparent"
+        DataContext="{Binding Main.SearchItem.CurrentCustomerItem, Source={StaticResource Locator}}">
         <!--Pivot Control-->
         <phone:Pivot Title="ГосТраты">
             <!--Pivot item one-->
             <phone:PivotItem Header="Детали">
                 <Grid>
+                    <ScrollViewer>
+                        <StackPanel>
+                            <TextBlock Text="{Binding FullName}" 
+                                       TextWrapping="Wrap" Style="{StaticResource PhoneTextTitle2Style}"/>
+
+                            <TextBlock Text="ИНН" Style="{StaticResource PhoneTextTitle2Style}"></TextBlock>
+                            <TextBlock TextWrapping="Wrap" Text="{Binding Inn}"/>
+
+                            <TextBlock Text="КПП" Style="{StaticResource PhoneTextTitle2Style}"></TextBlock>
+                            <TextBlock TextWrapping="Wrap" Text="{Binding Kpp}"/>
+
+                            <TextBlock Text="Код по СПЗ" Style="{StaticResource PhoneTextTitle2Style}"></TextBlock>
+                            <TextBlock TextWrapping="Wrap" Text="{Binding RegNumber}"/>
+
+                            <TextBlock Text="Количество контрактов" Style="{StaticResource PhoneTextTitle2Style}"></TextBlock>
+                            <TextBlock TextWrapping="Wrap" Text="{Binding ContractsCount}"/>
+
+                            <TextBlock Text="Сумма контрактов" Style="{StaticResource PhoneTextTitle2Style}"></TextBlock>
+                            <TextBlock TextWrapping="Wrap" Text="{Binding ContractsSum}"/>
+                        </StackPanel>
+                    </ScrollViewer>
                 </Grid>
             </phone:PivotItem>
 
             <!--Pivot item two-->
-            <phone:PivotItem Header="Детали2">
-                <Grid/>
+            <phone:PivotItem Header="Контакты">
+                <Grid>
+                    <ScrollViewer>
+                        <StackPanel>
+                            <TextBlock Text="Email" Style="{StaticResource PhoneTextTitle2Style}"></TextBlock>
+                            <TextBlock TextWrapping="Wrap" Text="{Binding Details.Email}"/>
+
+                            <TextBlock Text="Телефон" Style="{StaticResource PhoneTextTitle2Style}"></TextBlock>
+                            <TextBlock TextWrapping="Wrap" Text="{Binding Details.Phone}"/>
+
+                            <TextBlock Text="Факс" Style="{StaticResource PhoneTextTitle2Style}"></TextBlock>
+                            <TextBlock TextWrapping="Wrap" Text="{Binding Details.Fax}"/>
+
+                            <TextBlock Text="Почтовый адрес" Style="{StaticResource PhoneTextTitle2Style}"></TextBlock>
+                            <TextBlock TextWrapping="Wrap" Text="{Binding Details.PostalAddress}" />
+
+                            <TextBlock Text="Фактический адрес" Style="{StaticResource PhoneTextTitle2Style}"></TextBlock>
+                            <TextBlock TextWrapping="Wrap" Text="{Binding Details.FactualAddress.AddressLine}"/>
+                        </StackPanel>
+                    </ScrollViewer>
+                </Grid>
             </phone:PivotItem>
         </phone:Pivot>
     </Grid>

@@ -1,9 +1,13 @@
-﻿using GalaSoft.MvvmLight;
+﻿using System.Diagnostics;
+using GalaSoft.MvvmLight;
+using Newtonsoft.Json.Linq;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net.Http;
 using System.Text;
 using System.Threading.Tasks;
+using Newtonsoft.Json;
 
 namespace ClearSpendingSDK.Models
 {
@@ -45,5 +49,90 @@ namespace ClearSpendingSDK.Models
         /// 
         /// </summary>
         public string Id { get; set; }
+
+        public async Task<bool> LoadFullCustomerData()
+        {
+            HttpClient http = new HttpClient();
+            http.DefaultRequestHeaders.Add("X-Mashape-Authorization", Settings.AuthKey);
+            HttpResponseMessage result = await
+                http.GetAsync(
+                    new Uri("https://clearspending.p.mashape.com//v1/customers/get/?spzregnum=" + this.RegNumber));
+            string RawResult = await result.Content.ReadAsStringAsync();
+            try
+            {
+                JObject resultJObject = new JObject();
+                resultJObject = JObject.Parse(RawResult);
+                string json = resultJObject["customers"]["data"].ToString();
+                var items = JsonConvert.DeserializeObject<List<CustomerDetailedItem>>(json);
+                Details = items.FirstOrDefault();
+            }
+            catch
+            {
+            }
+
+            Debug.WriteLine(RawResult);
+            return true;
+        }
+
+        private CustomerDetailedItem _detals;
+        /// <summary>
+        /// 
+        /// </summary>
+        public CustomerDetailedItem Details
+        {
+            get { return _detals; }
+            set
+            {
+                _detals = value;
+                RaisePropertyChanged("Details");
+            }
+        }
+    }
+
+    public class CustomerDetailedItem : ViewModelBase
+    {
+        public string RegionCode { get; set; }
+        public string Email { get; set; }
+
+        private string _fax;
+        /// <summary>
+        /// 
+        /// </summary>
+        public string Fax
+        {
+            get { return _fax; }
+            set
+            {
+                _fax = value;
+                RaisePropertyChanged("Fax");
+            }
+        }
+
+        private string _phone;
+        /// <summary>
+        /// 
+        /// </summary>
+        public string Phone
+        {
+            get { return _phone; }
+            set
+            {
+                _phone = value;
+                RaisePropertyChanged("Phone");
+            }
+        }
+
+        public FactualAddressItem FactualAddress { get; set; }
+
+        public string PostalAddress { get; set; }
+    }
+
+    public class FactualAddressItem
+    {
+        public string AddressLine { get; set; }
+        public string Zip { get; set; }
+        public string Building { get; set; }
+        public string OKATO { get; set; }
+        public string ShortStreet { get; set; }
     }
 }

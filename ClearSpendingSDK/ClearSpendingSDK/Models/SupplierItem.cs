@@ -16,7 +16,7 @@ namespace ClearSpendingSDK.Models
     {
         public string Kpp { get; set; }
 
-        public string FactualAddress { get; set; }
+        //public string FactualAddress { get; set; }
 
         public string OrganizationName { get; set; }
 
@@ -30,10 +30,90 @@ namespace ClearSpendingSDK.Models
 
         public string ParticipantType { get; set; }
 
-        public string ContactPhone { get; set; }
+        private string _factualAddress;
+        /// <summary>
+        /// 
+        /// </summary>
+        public string FactualAddress
+        {
+            get
+            {
+                if (String.IsNullOrEmpty(_factualAddress))
+                {
+                    _factualAddress = "не указан";
+                }
+                return _factualAddress;
+            }
+            set
+            {
+                _factualAddress = value;
+                RaisePropertyChanged("FactualAddress");
+            }
+        }
 
-        public string PostAddress { get; set; }
+        private string _postAddress;
+        /// <summary>
+        /// 
+        /// </summary>
+        public string PostAddress
+        {
+            get
+            {
+                if (String.IsNullOrEmpty(_postAddress))
+                {
+                    _postAddress = "не указан";
+                }
+                return _postAddress;
+            }
+            set
+            {
+                _postAddress = value;
+                RaisePropertyChanged("PostAddress");
+            }
+        }
 
-        public string ContactFax { get; set; }
+        private string _contactFax;
+        /// <summary>
+        /// 
+        /// </summary>
+        public string ContactFax
+        {
+            get
+            {
+                if (String.IsNullOrEmpty(_contactFax))
+                {
+                    _contactFax = "не указан";
+                }
+                return _contactFax;
+            }
+            set
+            {
+                _contactFax = value;
+                RaisePropertyChanged("ContactFax");
+            }
+        }
+        
+
+        private string _contactPhone = "";
+        /// <summary>
+        /// 
+        /// </summary>
+        public string ContactPhone
+        {
+            get
+            {
+                if (String.IsNullOrEmpty(_contactPhone))
+                {
+                    _contactPhone = "не указан";
+                }
+                return _contactPhone;
+            }
+            set
+            {
+                _contactPhone = value;
+                RaisePropertyChanged("ContactPhone");
+            }
+        }
+        
     }
 }

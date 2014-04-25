@@ -256,7 +256,20 @@ namespace ClearSpendingSDK
                 RaisePropertyChanged("CurrentSupplierItem");
             }
         }
-        
+
+        private CustomerItem _currentCustomerItem;
+        /// <summary>
+        /// 
+        /// </summary>
+        public CustomerItem CurrentCustomerItem
+        {
+            get { return _currentCustomerItem; }
+            set
+            {
+                _currentCustomerItem = value;
+                RaisePropertyChanged("CurrentCustomerItem");
+            }
+        }
         
 
         private string _rawResult;

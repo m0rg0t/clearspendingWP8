@@ -91,11 +91,12 @@ namespace ClearSpendingSearchWP8.Pages
             this.CustomersSearch.CurrentItem = item; //ViewModelLocator.MainStatic.SearchParams.Customer;
         }
 
-        private void ResultsContracts_ItemTap(object sender, Telerik.Windows.Controls.ListBoxItemTapEventArgs e)
+        private void ResultsCustomers_ItemTap(object sender, Telerik.Windows.Controls.ListBoxItemTapEventArgs e)
         {
             try
             {
-
+                ViewModelLocator.MainStatic.SearchItem.CurrentCustomerItem = (CustomerItem)ResultsCustomers.SelectedItem;
+                NavigationService.Navigate(new Uri("/Pages/CustomerDetailPage.xaml", UriKind.Relative));
             }
             catch
             {

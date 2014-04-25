@@ -92,7 +92,7 @@
                         VerticalAlignment="Stretch"
                         HorizontalContentAlignment="Left" HorizontalAlignment="Stretch" 
                         EmptyContent="{Binding Path=LocalizedResources.NoData, 
-                        Source={StaticResource LocalizedStrings}}" ItemTap="ResultsContracts_ItemTap">
+                        Source={StaticResource LocalizedStrings}}" ItemTap="ResultsCustomers_ItemTap">
                         <!--ItemsSource="{Binding Path=ContractSearchItem.Items}"                        
                         DataContext="{Binding Main, Source={StaticResource Locator}}"-->
                     </telerikData:RadJumpList>
