@@ -62,7 +62,7 @@ namespace ClearSpendingSearchWP8.Pages
                 try
                 {
                     item.Regioncode =
-                        ViewModelLocator.MainStatic.Regions.RegionItems.FirstOrDefault(c => c.Name == item.RegionItems).Id;
+                        ViewModelLocator.MainStatic.Regions.RegionItems.FirstOrDefault(c => c.Name == item.RegionItems).SubjectCode.ToString();
                 }
                 catch
                 {

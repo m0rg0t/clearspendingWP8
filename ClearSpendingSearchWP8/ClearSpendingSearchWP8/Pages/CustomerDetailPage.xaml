@@ -10,6 +10,7 @@
     FontFamily="{StaticResource PhoneFontFamilyNormal}"
     FontSize="{StaticResource PhoneFontSizeNormal}"
     Foreground="{StaticResource PhoneForegroundBrush}"
+    xmlns:maps="clr-namespace:Microsoft.Phone.Maps.Controls;assembly=Microsoft.Phone.Maps"
     
     shell:SystemTray.IsVisible="{Binding Loading}"
     shell:SystemTray.Opacity="0"    
@@ -75,6 +76,12 @@
                             <TextBlock TextWrapping="Wrap" Text="{Binding Details.FactualAddress.AddressLine}"/>
                         </StackPanel>
                     </ScrollViewer>
+                </Grid>
+            </phone:PivotItem>
+
+            <phone:PivotItem Header="Карта">
+                <Grid>
+                    <maps:Map Name="MyMap" />
                 </Grid>
             </phone:PivotItem>
         </phone:Pivot>

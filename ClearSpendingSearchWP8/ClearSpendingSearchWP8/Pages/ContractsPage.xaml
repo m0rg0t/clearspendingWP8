@@ -55,9 +55,9 @@
                                 </telerikInput:RadDataForm.CurrentItem>-->
                                 <Grid>
                                     <telerikInput:DataField Header="Текст для поиска" TargetProperty="Productsearch">
-                                        <telerikInput:DataField.Validators>
+                                        <!--<telerikInput:DataField.Validators>
                                             <telerikInput:NonEmptyStringValidator/>
-                                        </telerikInput:DataField.Validators>
+                                        </telerikInput:DataField.Validators>-->
                                     </telerikInput:DataField>
 
                                     <telerikInput:DataField Header="Регион" TargetProperty="RegionItems"/>
