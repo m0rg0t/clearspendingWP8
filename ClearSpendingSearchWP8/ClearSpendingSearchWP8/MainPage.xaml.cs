@@ -45,7 +45,15 @@ namespace ClearSpendingSearchWP8
 
         private void SuppliersTile_Tap(object sender, System.Windows.Input.GestureEventArgs e)
         {
-            NavigationService.Navigate(new Uri("/Pages/SuppliersPage.xaml", UriKind.Relative));
+            if (ViewModelLocator.MainStatic.Loading == false)
+            {
+                NavigationService.Navigate(new Uri("/Pages/SuppliersPage.xaml", UriKind.Relative));
+                //NavigationService.Navigate(new Uri("/Pages/RadControlsItem2.xaml", UriKind.Relative));
+            }
+            else
+            {
+                MessageBox.Show("Дождитесь завершения загрузки.");
+            }
         }
 
         private void ContractsTile_Tap(object sender, System.Windows.Input.GestureEventArgs e)
@@ -69,12 +77,28 @@ namespace ClearSpendingSearchWP8
 
         private void SearchTile_Tap(object sender, System.Windows.Input.GestureEventArgs e)
         {
-            NavigationService.Navigate(new Uri("/Pages/SearchPage.xaml", UriKind.Relative));
+            if (ViewModelLocator.MainStatic.Loading == false)
+            {
+                NavigationService.Navigate(new Uri("/Pages/SearchPage.xaml", UriKind.Relative));
+                //NavigationService.Navigate(new Uri("/Pages/RadControlsItem2.xaml", UriKind.Relative));
+            }
+            else
+            {
+                MessageBox.Show("Дождитесь завершения загрузки.");
+            }
         }
 
         private void CustomersTile_Tap(object sender, System.Windows.Input.GestureEventArgs e)
         {
-            NavigationService.Navigate(new Uri("/Pages/CustomersPage.xaml", UriKind.Relative));
+            if (ViewModelLocator.MainStatic.Loading == false)
+            {
+                NavigationService.Navigate(new Uri("/Pages/CustomersPage.xaml", UriKind.Relative));
+                //NavigationService.Navigate(new Uri("/Pages/RadControlsItem2.xaml", UriKind.Relative));
+            }
+            else
+            {
+                MessageBox.Show("Дождитесь завершения загрузки.");
+            }
         }
 
         private void StatisticsTile_Tap(object sender, System.Windows.Input.GestureEventArgs e)

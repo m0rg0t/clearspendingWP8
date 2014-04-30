@@ -79,12 +79,10 @@
             </phone:PanoramaItem>
 
             <!--Panorama item one-->
-            <phone:PanoramaItem Header="Контракты">
-                <!--Single line list with text wrapping-->
-                <Grid>
-                    
+            <!--<phone:PanoramaItem Header="Контракты">
+                <Grid>                    
                 </Grid>
-            </phone:PanoramaItem>
+            </phone:PanoramaItem>-->
 
         </phone:Panorama>
 

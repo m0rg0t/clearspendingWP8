@@ -173,11 +173,17 @@ namespace ClearSpendingSDK
                         catch
                         {
                         }
-                        ;
-                        curContract.Suppliers =
-                            JsonConvert.DeserializeObject<SuppliersItems>(item["suppliers"].ToString());
 
-                        ContractItems.Add(curContract);
+                        try
+                        {
+                            curContract.Suppliers =
+                                JsonConvert.DeserializeObject<SuppliersItems>(item["suppliers"].ToString());
+
+                            ContractItems.Add(curContract);
+                        }
+                        catch
+                        {
+                        }
                     }
                     //ContractItems = JsonConvert.DeserializeObject<List<ContractItem>>(resultJObject["contracts"]["data"].ToString());
                     RaisePropertyChanged("ContractItems");

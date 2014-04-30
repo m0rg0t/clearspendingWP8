@@ -123,6 +123,44 @@
             </Grid>
         </DataTemplate>
 
+        <DataTemplate x:Name="SupplierItem">
+            <Grid Margin="15,20,0,0" Width="Auto">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                </Grid.RowDefinitions>
+                <TextBlock Grid.Row="0" Text="{Binding ShortName}" TextWrapping="Wrap" />
+
+                <StackPanel Grid.Row="1">
+                    <TextBlock Text="{Binding Path=LocalizedResources.Sum, 
+                        Source={StaticResource LocalizedStrings}}"></TextBlock>
+                    <TextBlock Text="{Binding Sum}" TextWrapping="Wrap" />
+                    <TextBlock Text="{Binding Path=LocalizedResources.Ryb, 
+                        Source={StaticResource LocalizedStrings}}" TextWrapping="Wrap" />
+                </StackPanel>
+                <StackPanel Grid.Row="2">
+                    <TextBlock Text="{Binding Path=LocalizedResources.Quantity, 
+                        Source={StaticResource LocalizedStrings}}"></TextBlock>
+                    <TextBlock Text="{Binding Quantity}" TextWrapping="Wrap" />
+                </StackPanel>
+
+                <StackPanel Grid.Row="3" Orientation="Horizontal">
+                    <TextBlock Text="{Binding Path=LocalizedResources.ContractPrice, 
+                        Source={StaticResource LocalizedStrings}}" TextWrapping="Wrap" />
+                    <TextBlock Text="{Binding Price}" TextWrapping="Wrap" />
+                    <TextBlock Text="{Binding Path=LocalizedResources.Ryb, 
+                        Source={StaticResource LocalizedStrings}}" TextWrapping="Wrap" />
+                </StackPanel>
+            </Grid>
+        </DataTemplate>
+        
+
     </Application.Resources>
   <Application.ApplicationLifetimeObjects>
     <!--Required object that handles lifetime events for the application-->
