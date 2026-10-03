@@ -52,59 +52,59 @@ namespace ClearSpendingSDK.Models
             string outString = "?";
             if (!String.IsNullOrEmpty(Namesearch))
             {
-                outString = outString + "namesearch=" + Namesearch + "&";
+                outString = outString + "namesearch=" + Uri.EscapeDataString(Namesearch) + "&";
             }
             if (!String.IsNullOrEmpty(Spzregnum))
             {
-                outString = outString + "spzregnum=" + Spzregnum + "&";
+                outString = outString + "spzregnum=" + Uri.EscapeDataString(Spzregnum) + "&";
             }
             if (!String.IsNullOrEmpty(Inn))
             {
-                outString = outString + "inn=" + Inn + "&";
+                outString = outString + "inn=" + Uri.EscapeDataString(Inn) + "&";
             }
             if (!String.IsNullOrEmpty(Kpp))
             {
-                outString = outString + "kpp=" + Kpp + "&";
+                outString = outString + "kpp=" + Uri.EscapeDataString(Kpp) + "&";
             }
             if (!String.IsNullOrEmpty(Okpo))
             {
-                outString = outString + "okpo=" + Okpo + "&";
+                outString = outString + "okpo=" + Uri.EscapeDataString(Okpo) + "&";
             }
             if (!String.IsNullOrEmpty(Okved))
             {
-                outString = outString + "okved=" + Okved + "&";
+                outString = outString + "okved=" + Uri.EscapeDataString(Okved) + "&";
             }
             if (!String.IsNullOrEmpty(Name))
             {
-                outString = outString + "name=" + Name + "&";
+                outString = outString + "name=" + Uri.EscapeDataString(Name) + "&";
             }
             if (!String.IsNullOrEmpty(Ogrn))
             {
-                outString = outString + "ogrn=" + Ogrn + "&";
+                outString = outString + "ogrn=" + Uri.EscapeDataString(Ogrn) + "&";
             }
             if (!String.IsNullOrEmpty(Okogu))
             {
-                outString = outString + "okogu=" + Okogu + "&";
+                outString = outString + "okogu=" + Uri.EscapeDataString(Okogu) + "&";
             }
             if (!String.IsNullOrEmpty(Okato))
             {
-                outString = outString + "okato=" + Okato + "&";
+                outString = outString + "okato=" + Uri.EscapeDataString(Okato) + "&";
             }
             if (!String.IsNullOrEmpty(Subordination))
             {
-                outString = outString + "subordination=" + Subordination + "&";
+                outString = outString + "subordination=" + Uri.EscapeDataString(Subordination) + "&";
             }
             if (!String.IsNullOrEmpty(Orgtype))
             {
-                outString = outString + "orgtype=" + Orgtype + "&";
+                outString = outString + "orgtype=" + Uri.EscapeDataString(Orgtype) + "&";
             }
             if (!String.IsNullOrEmpty(Regioncode))
             {
-                outString = outString + "regioncode=" + Regioncode + "&";
+                outString = outString + "regioncode=" + Uri.EscapeDataString(Regioncode) + "&";
             }
             if (!String.IsNullOrEmpty(Kladregion))
             {
-                outString = outString + "kladregion=" + Kladregion + "&";
+                outString = outString + "kladregion=" + Uri.EscapeDataString(Kladregion) + "&";
             }
             outString = outString + "page=" + Page + "&";
             outString = outString + "perpage=" + Perpage + "&";
@@ -278,23 +278,23 @@ namespace ClearSpendingSDK.Models
             string outString = "?";
             if (!String.IsNullOrEmpty(Namesearch))
             {
-                outString = outString + "namesearch=" + Namesearch + "&";
+                outString = outString + "namesearch=" + Uri.EscapeDataString(Namesearch) + "&";
             }
             if (!String.IsNullOrEmpty(Inn))
             {
-                outString = outString + "inn=" + Inn + "&";
+                outString = outString + "inn=" + Uri.EscapeDataString(Inn) + "&";
             }
             if (!String.IsNullOrEmpty(Kpp))
             {
-                outString = outString + "kpp=" + Kpp + "&";
+                outString = outString + "kpp=" + Uri.EscapeDataString(Kpp) + "&";
             }
             if (!String.IsNullOrEmpty(Regioncode))
             {
-                outString = outString + "regioncode=" + Regioncode + "&";
+                outString = outString + "regioncode=" + Uri.EscapeDataString(Regioncode) + "&";
             }
             if (!String.IsNullOrEmpty(Orgform))
             {
-                outString = outString + "orgform=" + Orgform + "&";
+                outString = outString + "orgform=" + Uri.EscapeDataString(Orgform) + "&";
             }
             if (Inblacklist!=null)
             {
@@ -402,27 +402,27 @@ namespace ClearSpendingSDK.Models
             string outString = "?";
             if (!String.IsNullOrEmpty(Productsearch))
             {
-                outString = outString + "productsearch=" + Productsearch + "&";
+                outString = outString + "productsearch=" + Uri.EscapeDataString(Productsearch) + "&";
             }
             if (!String.IsNullOrEmpty(Regnum))
             {
-                outString = outString + "regnum=" + Regnum + "&";
+                outString = outString + "regnum=" + Uri.EscapeDataString(Regnum) + "&";
             }
             if (!String.IsNullOrEmpty(Customerinn))
             {
-                outString = outString + "customerinn=" + Customerinn + "&";
+                outString = outString + "customerinn=" + Uri.EscapeDataString(Customerinn) + "&";
             }
             if (!String.IsNullOrEmpty(Customerkpp))
             {
-                outString = outString + "customerkpp=" + Customerkpp + "&";
+                outString = outString + "customerkpp=" + Uri.EscapeDataString(Customerkpp) + "&";
             }
             if (!String.IsNullOrEmpty(Supplierkpp))
             {
-                outString = outString + "supplierkpp=" + Supplierkpp + "&";
+                outString = outString + "supplierkpp=" + Uri.EscapeDataString(Supplierkpp) + "&";
             }
             if (!String.IsNullOrEmpty(Customerregion))
             {
-                outString = outString + "customerregion=" + Customerregion + "&";
+                outString = outString + "customerregion=" + Uri.EscapeDataString(Customerregion) + "&";
             }
             if ((DaterangeStart.Date != DateTime.Now.Date) || 
                 (DaterangeEnd.Date != DateTime.Now.Date))
